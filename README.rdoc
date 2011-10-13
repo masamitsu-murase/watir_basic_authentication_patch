@@ -1,0 +1,39 @@
+= watir_basic_authentication_patch
+
+== Overview
+
+This is a patch for [Watir](http://watir.com/).
+This patch adds *Watir::IE#goto_with_basic_authentication* method to support basic access authentication.
+
+* This method does *not* use [AutoIt](http://www.autoitscript.com/site/autoit/) and no pop-up window is shown.
+* This method need *not* to change any registry settings, such as FEATURE_HTTP_USERNAME_PASSWORD_DISABLE.
+* This method will work well on Internet Explorer 6, 7, ..., 9 of any language edition.
+
+== Sample
+
+    require("rubygems")
+    require("watir")
+    require("watir_basic_authentication_patch")
+
+    ie = Watir::IE.new
+
+    # 1. We should access via "goto_with_basic_authentication".
+    ie.goto_with_basic_authentication("http://example.net/index.html", username, password)
+
+    # 2. After the first access, we can access via "goto" method.
+    ie.goto("http://example.net/sub_dir/index2.html")
+    ie.link(:index, 1).click
+
+== License
+
+You can use this patch under the MIT License as follows.
+
+
+Copyright (c) 2011 Masamitsu Murase
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
