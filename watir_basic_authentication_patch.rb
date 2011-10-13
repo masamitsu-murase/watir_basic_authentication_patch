@@ -10,7 +10,7 @@ module Watir
 (function(){
     var creators = [ function(){ return new XMLHttpRequest(); },
                      function(){ return new ActiveXObject('Msxml2.XMLHTTP.6.0'); },
-                     function(){ return new ActiveXObject('Msxml2.XMLHTTP.3.0'); } ]
+                     function(){ return new ActiveXObject('Msxml2.XMLHTTP.3.0'); } ];
     var xhr = null;
     for (var i=0; i<creators.length; i++){
         try{
