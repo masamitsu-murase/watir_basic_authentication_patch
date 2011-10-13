@@ -1,0 +1,27 @@
+h1. watir_basic_authentication_patch
+
+h2. Overview
+
+This is a patch for "Watir":http://watir.com/.
+This patch add @Watir::IE#goto_with_basic_authentication@ method to support basic access authentication.
+
+* This method does *not* use "AutoIt":http://www.autoitscript.com/site/autoit/ and no pop-up window is shown.
+* This method need *not* to change any registry settings, such as @FEATURE_HTTP_USERNAME_PASSWORD_DISABLE@.
+* This method will work well on Internet Explorer 6, 7, ..., 9 of any language edition.
+
+h2. Sample
+<pre>
+require("rubygems")
+require("watir")
+require("watir_basic_authentication_patch")
+
+ie = Watir::IE.new
+
+# 1. We should access via "goto_with_basic_authentication".
+ie.goto_with_basic_authentication("http://example.net/index.html", username, password)
+
+# 2. After the first access, we can access via "goto" method.
+ie.goto("http://example.net/sub_dir/index2.html")
+ie.link(:index, 1).click
+</pre>
+
