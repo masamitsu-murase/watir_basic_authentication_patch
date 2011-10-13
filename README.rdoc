@@ -14,12 +14,12 @@ This patch adds *Watir::IE#goto_with_basic_authentication* method to support bas
     require("rubygems")
     require("watir")
     require("watir_basic_authentication_patch")
-
+    
     ie = Watir::IE.new
-
+    
     # 1. We should access via "goto_with_basic_authentication".
     ie.goto_with_basic_authentication("http://example.net/index.html", username, password)
-
+    
     # 2. After the first access, we can access via "goto" method.
     ie.goto("http://example.net/sub_dir/index2.html")
     ie.link(:index, 1).click
