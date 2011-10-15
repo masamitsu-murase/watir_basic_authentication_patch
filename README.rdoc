@@ -9,6 +9,8 @@ This patch adds *Watir::IE#goto_with_basic_authentication* method to support bas
 * This method need *not* to change any registry settings, such as FEATURE_HTTP_USERNAME_PASSWORD_DISABLE.
 * This method will work well on Internet Explorer 6, 7, ..., 9 of any language edition.
 
+But this patch does not work at some pages which include frame or some elements...
+
 == Sample
 
     require("rubygems")
